@@ -1,11 +1,9 @@
 // Serie de Fibonacci
-function fibonacci(num){
-      let a = 1, b = [0,1], guardar;
-  while (num >= 0){
-      guardar = a;
-      a = a + b[num];
-      num--;
-  }
-  return b;
+let n1 = 0, n2 = 1, s;
+
+for (let i = 1; i <= 10; i++){
+    s = n1;
+    console.log(s);
+    n1 = n1 + n2;
+    n2 = s;
 }
-console.log(fibonacci(10));
