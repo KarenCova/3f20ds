@@ -1,5 +1,5 @@
-let x = prompt();
-    for (let i = 1; i <= 10; i++){
-        x = Math.floor(Math.random() * 10 + 1);
-        console.log(x);
+let x = prompt('Cantidad'), n = prompt(' Valor Máximo'),r = 0;
+    for (let k = 1; k <= x; k++){
+        r = Math.floor(Math.random() * n + 1);
+        console.log(r);
 }
