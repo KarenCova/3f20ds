@@ -1,29 +1,50 @@
-LinkedListNode FindBeginning(LinkedListNode_head) 
-{
-    n1 = head;
-    n2 = head;
-    
-    while (n2.next != null) 
-    {
-        n1 = n1.next;
-        n2 = n2.next.next;
-        if (n1 == n2) 
-        {
-            break;
+function LinkedList(){
+    this.head = new Node("head");
+    this.next = this.head;
+    this.find = find;
+    this.insert = insert;
+    this.display = display;
+    this.findPrevious = findPrevious;
+}
+
+function Node(element){
+    this.element = element;
+    this.next = null; 
+}
+
+function find(item){
+    var currNode = this.head; 
+    while(currNode.element!= item){
+        currNode = currNode.next;
+    }
+}
+
+function insert(newElement,item){
+    var newNode = new Node(newElement);
+    var current = this.find(item);
+    newNode.next = current.next;
+    current.next = newNode;
+}
+
+function findPrevious(item){
+    var currNode = this.head;
+    while(!(currNode.next == null)){
+        currNode = currNode.next;
+    }
+}
+
+function display() {
+    var currNode = this.head;
+    while (!(currNode.next == null) &&!(currNode.next.element == "head")) {
+    console.log(currNode.next.element);
+    currNode = currNode.next;
         }
     }
 
-     if (n2.next == null) 
-     {
-        return null;
-     }
-
-    n1 = head;
-    while (n1 != n2) 
-    {
-        n1 = n1.next;
-        n2 = n2.next;
-    }
-
-    return n2;
-}
+var cities = new LinkedList(); 
+cities.insert("Conway", "head");
+cities.insert("Russelville", "Conway");
+cities.insert("Carlisle", "Russelville");
+cities.insert("Alma", "Carlisle");
+cities.display();
+console.log(cities);
